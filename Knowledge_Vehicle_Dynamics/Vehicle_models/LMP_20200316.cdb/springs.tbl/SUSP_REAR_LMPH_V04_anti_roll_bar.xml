@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<afc xmlns="http://www.mscsoftware.com/:vfc" xmlns:afc="http://www.mscsoftware.com/:afc">
+     <afc:Bibliography>
+          <File schema="afc" version="2.0.0.0" URI="file://D:/VI-Grade_DB_BCK/LMP_20200316.cdb/springs.tbl/SUSP_REAR_LMPH_V04_anti_roll_bar.xml" publicationDate="2020-03-16 10:19:02+01:00"/>
+          <Revision version="17.0"/>
+          <Corporation author="MSC.Software" URI="http://www.mscsoftware.com/"/>
+          <Author user="Stefano.Rapisarda" name="-unknown name-"/>
+          <Environment hostName="PE-NTBK-007" operatingSystem="MS Windows NT 6.2"/>
+          <Application name="MSC/AFC" version="02.00.00"/>
+     </afc:Bibliography>
+     <afc:Units>
+          <afc:UnitSetting name="angle" current="deg"/>
+          <afc:UnitSetting name="current" current="ampere"/>
+          <afc:UnitSetting name="force" current="newton"/>
+          <afc:UnitSetting name="length" current="mm"/>
+          <afc:UnitSetting name="luminosity" current="candela"/>
+          <afc:UnitSetting name="mass" current="kg"/>
+          <afc:UnitSetting name="quantity" current="mole"/>
+          <afc:UnitSetting name="solidAngle" current="steradian"/>
+          <afc:UnitSetting name="temperature" current="kelvin"/>
+          <afc:UnitSetting name="time" current="sec"/>
+          <afc:UnitSetting name="frequency" current="Hz"/>
+     </afc:Units>
+     <AntiRollBarProperties name="ARB" active="true" userDefined="false" rate="1660.0" method="linear">
+          <Spline name="spline_data" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Anti Roll Bar Deformation" yLabel="Anti Roll Bar Torque" xUnit="angle" yUnit="torque" datablock="Anti Roll Bar Torque vs. Deformation">
+            <![CDATA[
+            -30          -15000
+       -21.4286        -10714.3
+       -12.8571        -6428.57
+       -4.28571        -2142.86
+        4.28571         2142.86
+        12.8571         6428.57
+        21.4286         10714.3
+             30           15000
+]]>
+          </Spline>
+     </AntiRollBarProperties>
+</afc>

@@ -1,0 +1,95 @@
+close all
+clear
+clc
+load matlab.mat
+
+% Cut first point (origin of track)
+Lxcoord = Lxcoord(2:end);
+Lycoord = Lycoord(2:end);
+Lzcoord = Lzcoord(2:end);
+Rxcoord = Rxcoord(2:end);
+Rycoord = Rycoord(2:end);
+Rzcoord = Rzcoord(2:end);
+
+% Put end of track in the first point
+Lxcoord(end+1) = Lxcoord(1);
+Lycoord(end+1) = Lycoord(1);
+Lzcoord(end+1) = Lzcoord(1);
+Rxcoord(end+1) = Rxcoord(1);
+Rycoord(end+1) = Rycoord(1);
+Rzcoord(end+1) = Rzcoord(1);
+
+STEP = 5; %m - step of output
+
+% Left path S
+SL = zeros(length(Lxcoord),1);
+for i=2:length(Lxcoord)
+    SL(i) = SL(i-1) + sqrt((Lxcoord(i)-Lxcoord(i-1)).^2+(Lycoord(i)-Lycoord(i-1)).^2);
+end
+
+% Right path S
+SR = zeros(length(Rxcoord),1);
+for i=2:length(Rxcoord)
+    SR(i) = SR(i-1) + sqrt((Rxcoord(i)-Rxcoord(i-1)).^2+(Rycoord(i)-Rycoord(i-1)).^2);
+end
+
+% Stretch shorter vector to match points number
+if SL(end) >= SR(end)
+    SR1 = (0:SR(end)/SL(end)*STEP:SR(end))';
+    SL1 = (0:STEP:SL(end))';
+else
+    SR1 = (0:STEP:SR(end))';
+    SL1 = (0:SL(end)/SR(end)*STEP:SL(end))';
+end
+
+xL = interp1(SL,Lxcoord,SL1);
+yL = interp1(SL,Lycoord,SL1);
+zL = interp1(SL,Lzcoord,SL1);
+xR = interp1(SR,Rxcoord,SR1);
+yR = interp1(SR,Rycoord,SR1);
+zR = interp1(SR,Rzcoord,SR1);
+
+% Find centerline
+xM = (xL+xR)./2;
+yM = (yL+yR)./2;
+zM = (zL+zR)./2;
+S = zeros(length(xM),1);
+for i=2:length(xM)
+    S(i) = S(i-1) + sqrt((xM(i)-xM(i-1)).^2+(yM(i)-yM(i-1)).^2);
+end
+
+% Track width
+W = sqrt((xL-xR).^2 + (yL-yR).^2);
+W(1) = W(end);
+
+% Banking
+B = atan((zL-zR)./W);
+for i=1:length(B)
+    if isnan(B(i))
+        B(i) = 0;
+    end
+end
+
+% Output for vigrade measured track
+Wout = [S W];
+Mout = [xM yM zM B];
+
+% Plots
+figure
+plot(xL,yL)
+hold on
+plot(xR,yR)
+plot(xM,yM)
+title('Plant view')
+
+figure
+plot(S,W)
+title('Track width [m]')
+
+figure
+plot(S,zM)
+title('Altitude [m]')
+
+figure
+plot(S,B.*57.325)
+title('Banking [deg]')

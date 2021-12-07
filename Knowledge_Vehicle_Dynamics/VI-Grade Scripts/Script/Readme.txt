@@ -1,0 +1,1 @@
+vig17 python obj2rdf.py nomeFileObj nomeFileRDF

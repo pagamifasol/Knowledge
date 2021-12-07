@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<afc xmlns="http://www.mscsoftware.com/:vfc" xmlns:afc="http://www.mscsoftware.com/:afc">
+     <afc:Bibliography>
+          <File schema="afc" version="2.0.0.0" URI="file://D:/VI-Grade_DB_BCK/LMP_20200316.cdb/subsystems.tbl/PWRT_PIPO_7500rpm_8pctLosses.xml" publicationDate="2020-03-16 10:19:03+01:00"/>
+          <Revision version="17.1"/>
+          <Corporation author="MSC Software" URI="http://www.mscsoftware.com/"/>
+          <Author user="Stefano.Rapisarda" name="-unknown name-"/>
+          <Environment hostName="PE-NTBK-007" operatingSystem="MS Windows NT 6.2"/>
+          <Application name="MSC/AFC" version="02.00.00"/>
+     </afc:Bibliography>
+     <afc:Units>
+          <afc:UnitSetting name="angle" current="deg"/>
+          <afc:UnitSetting name="current" current="ampere"/>
+          <afc:UnitSetting name="force" current="newton"/>
+          <afc:UnitSetting name="length" current="mm"/>
+          <afc:UnitSetting name="luminosity" current="candela"/>
+          <afc:UnitSetting name="mass" current="kg"/>
+          <afc:UnitSetting name="quantity" current="mole"/>
+          <afc:UnitSetting name="solidAngle" current="steradian"/>
+          <afc:UnitSetting name="temperature" current="kelvin"/>
+          <afc:UnitSetting name="time" current="sec"/>
+          <afc:UnitSetting name="frequency" current="Hz"/>
+     </afc:Units>
+     <Subsystem name="PWRT_PIPO_7500rpm_8pctLosses" active="true" userDefined="false">
+          <CRTDriveline name="Driveline" active="true" userDefined="false" intComEngineActive="true" topDrvMotorActive="false" centralDrvMotorActive="false" frontDrvMotorActive="false" rearDrvMotorActive="false" fLWheelMotorActive="false" fRWheelMotorActive="false" rLWheelMotorActive="false" rRWheelMotorActive="false" driveMethod="rwd" driveTorqueFrontBias="1.0" clutchTCConfig="clutch" gearboxConfig="manual">
+               <CRTInternalCombustionEngine name="internalCombustionEngine" active="true" userDefined="false" method="standard" torqueMapFileFlag="false" torqueMapFile="mdids://carrealtime_shared/powertrains.tbl/VI_engine_map.pwr" eMotorTorqueMapFileFlag="false" inertia="70000.0" stallRPM="2500.0" idleRPM="2500.0" revLimitRPM="7500.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="-10000.0" simpleEngineMaximumTorque="400000.0" simpleEngineMaximumPower="4e+11" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="true" idleControlMaximumThrottle="1.0" idleControlGain="0.002" maxRPMControlActiveFlag="true" maxRPMControlGain="0.005" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="500.0" tractionControlThreshold="0.08" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4125 4313 4500 4688 4875 5063 5250 5437 5625 5812 6000 6187 6375 6562 6750 6937 7125 7312 7500
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 -40000 0 615356 641241 669554 702206 734463 768408 799927 829273 852994 873409 885669 897186 895077 888371 877452 864149 847201 819833 793834
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+                    <CRTRamAir name="ramAir" active="true" userDefined="false" activeFlag="false" referenceAirDensity="1.2e-09" ambientPressure="0.101325" ambientTemperature="293.15">
+                         <Spline name="ramAirEfficiency" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Longitudinal Velocity" yLabel="Efficiency" xUnit="velocity" datablock="Ram Air Efficiency">
+                           <![CDATA[
+              0               1
+          25000               1
+          50000               1
+          75000               1
+         100000               1
+]]>
+                              <Comment userDefined="false">
+                                <![CDATA[]]>
+                              </Comment>
+                         </Spline>
+                    </CRTRamAir>
+                    <CRTFuelConsumption name="fuelConsumption" active="true" userDefined="false" fuelDensity="7.3e-07" engineVolume="2900000.0">
+                         <Spline3d name="bSFCTable" active="true" userDefined="false" interpolation_method="akima">
+                              <afc:VectorAttribute name="x_data">
+                                -2 0 25 50
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="y_data">
+                                282.5 282.5 282.5 282.5 271.9 271.9 271.9 271.9 268.7 268.7 268.7 268.7 268.4 268.4 268.4 268.4 267.1 267.1 267.1 267.1 268.3 268.3 268.3 268.3 266.4 266.4 266.4 266.4 277.4 277.4 277.4 277.4
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="z_data">
+                                4950 5400 6300 6750 7200 7650 8100 9000
+                              </afc:VectorAttribute>
+                              <Comment userDefined="false">
+                                <![CDATA[]]>
+                              </Comment>
+                         </Spline3d>
+                    </CRTFuelConsumption>
+               </CRTInternalCombustionEngine>
+               <CRTTorqueConverter name="torqueConverter" active="true" userDefined="false" capacityFactor="1.0" shiftCycleTime="0.1" oilDumpThreshold="1.0" oilDumpResidual="0" throttleOff="10.0" torqueReactionDirection="No Torque Reaction" clutchLockUpFlag="false" clutchLockUpGearId="3" clutchLockUpSpeed="10000.0" clutchLockUpTimeDelay="0.5">
+                    <Spline2d name="capacityFactorTable" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Speed Ratio (Output Shaft Angular Velocity/ Input Shaft Angular Velocity) [-]" yLabel="Capacity Factor  (Input Shaft Angular Velocity/ SQRT (Input Shaft Torque) [rad/sec/(N-m**0.5)] )" datablock="Capacity Factor">
+                      <![CDATA[
+             -5              25
+              0              25
+          0.123              25
+          0.953              50
+          0.955              80
+          0.957              80
+          0.959              90
+          0.961              90
+          0.963             100
+          0.965             100
+          0.996             105
+          0.997             105
+          0.998             105
+          1.001             105
+          1.006             100
+          1.013      79.4574243
+          1.019      65.2027534
+           1.02      56.5330355
+          1.025      51.1279521
+          1.032      45.7228687
+          1.052      40.0839547
+            1.1       34.858741
+          1.208      30.8296605
+          1.258       28.923042
+          1.328      27.1693128
+          1.423       25.442564
+          1.592      24.3453591
+          1.808      23.0053301
+          2.166        21.99806
+          2.833      21.6563076
+          4.172      21.3235487
+          8.283       21.179653
+]]>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline2d>
+                    <Spline2d name="torqueRatioTable" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Speed Ratio (Output Shaft Angular Velocity/ Input Shaft Angular Velocity) [-]" yLabel="Torque Ratio  (Output Shaft Torque/ Input Shaft Torque) [-]" datablock="Torque Ratio Factor">
+                      <![CDATA[
+             -5           1.769
+             -2           1.769
+             -1           1.769
+              0           1.769
+          0.123           1.769
+          0.251           1.573
+          0.382           1.457
+          0.509           1.348
+          0.636           1.241
+          0.736           1.159
+          0.809           1.094
+          0.868           1.038
+          0.895           1.012
+          0.903           1.009
+          0.908           1.009
+          0.914           1.009
+          0.918           1.009
+          0.922           1.009
+          0.926           1.009
+           0.93           1.009
+          0.934           1.009
+          0.937           1.007
+           0.94           1.007
+          0.943           1.007
+          0.945           1.007
+          0.948           1.007
+           0.95           1.007
+          0.953           1.006
+          0.955           1.006
+          0.957           1.004
+          0.959           1.004
+          0.961           1.004
+          0.963           1.004
+          0.965           1.004
+          0.996           1.004
+          0.997           1.004
+          0.998           1.004
+          1.001            1.13
+          1.006            1.12
+          1.013           1.058
+          1.019            1.04
+           1.02            1.03
+          1.025           1.025
+          1.032           1.021
+          1.052           1.015
+            1.1           1.012
+          1.208            1.01
+          1.258           1.009
+          1.328           1.006
+          1.423           1.005
+          1.592           1.006
+          1.808           1.004
+          2.166           1.005
+          2.833           1.006
+          4.172           1.005
+          8.283           1.005
+]]>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline2d>
+               </CRTTorqueConverter>
+               <CRTClutch name="clutch" active="true" userDefined="false" method="standard" inertia="1000.0" tau="0.05" capacity="1000000.0" stiffness="2000.0" damping="800.0" clutchOpen="1.0" clutchClose="0.25" efficiency="1.0" shiftCycleTime="0.05" torqueReactionDirection="No Torque Reaction"/>
+               <CRTManualGearbox name="manualGearbox" active="true" userDefined="false" inertia="1000.0" gearShiftMethod="table" inertiaMethod="constant" upshiftRPM="7400.0" downshiftRPM="5000.0" torqueReactionDirection="No Torque Reaction">
+                    <Spline2d name="gearRatios" id="0" active="true" userDefined="false" interpolation_method="akima">
+                      <![CDATA[
+             -1              -3
+              0               0
+              1           3.083
+              2           2.357
+              3           1.875
+              4           1.529
+              5             1.3
+              6            1.15
+              7           1.043
+]]>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline2d>
+                    <Spline2d name="gearInertia" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Inertia" yUnit="inertia" datablock="Gear Inertias">
+                      <![CDATA[
+              1               1
+              2               1
+              3               1
+              4               1
+              5               1
+              6               1
+              7               1
+              8               1
+]]>
+                    </Spline2d>
+                    <Spline3d name="efficiency" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -1 0 1 2 3 4 5 6 7
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0.92 0.92 0.92 0.92 0.92 0.92 0.92 0.92 0.92
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+                    <Spline3d name="gearShiftTable" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear" yLabel="RPM">
+                         <afc:VectorAttribute name="x_data">
+                           -1 0 1 2 3 4 5 6 7
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 4500 4600 4700 5000 5000 5000 10000 10000 7400 7400 7400 7400 7400 7400 7400
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 1
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+               </CRTManualGearbox>
+               <CRTAutomaticTransmission name="automaticTransmission" active="true" userDefined="false" inertiaMethod="constant" inertia="1000.0" rpmInputMethod="engine RPM" gearShiftingMode="comfort" torqueReactionDirection="No Torque Reaction">
+                    <Spline2d name="gearRatios" id="0" active="true" userDefined="false" interpolation_method="akima">
+                      <![CDATA[
+             -1              -3
+              0               0
+              1           2.846
+              2           2.357
+              3           1.938
+              4           1.579
+              5           1.316
+              6           1.105
+              7           0.926
+]]>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline2d>
+                    <Spline2d name="gearInertia" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Inertia" yUnit="inertia" datablock="Gear Inertias">
+                      <![CDATA[
+              1               1
+              2               1
+              3               1
+              4               1
+              5               1
+              6               1
+              7               1
+              8               1
+]]>
+                    </Spline2d>
+                    <Spline3d name="efficiency" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -1 0 1 2 3 4 5 6
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           1
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+                    <Spline3d name="gearUpShiftTable" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -1 0 1 2 3 4 5 6 7
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           10000 10000 6900 6900 6900 6900 6900 6900 6900 10000 10000 6900 6900 6900 6900 6900 6900 6900 10000 10000 6900 6900 6900 6900 6900 6900 6900
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 0.5 1
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+                    <Spline3d name="gearDownShiftTable" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -1 0 1 2 3 4 5 6 7
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 4000 5000 5000 5000 5000 5000 0 0 0 4000 5000 5000 5000 5000 5000 0 0 0 4000 5000 5000 5000 5000 5000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 0.5 1
+                         </afc:VectorAttribute>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline3d>
+                    <Spline3d name="gearSportUpShiftTable" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="gearSportDownShiftTable" active="true" userDefined="false" interpolation_method="akima">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+               </CRTAutomaticTransmission>
+               <Differential name="frontDifferential" active="true" userDefined="false" activeFlag="true" inertia="100.0" driveRatio="3.36" method="open" LSD_C0_pos="10.0" LSD_C0_neg="10.0" LSD_C2="0.8" LSD_C3="0.5" detroitLocker="false" efficiency="1.0" tripotOuter1="(0 0 0)" tripotInner1="(0 0 0)" tripotOuter2="(0 0 0)" tripotInner2="(0 0 0)" shaftReactionComputation="false" torqueReactionBody="No Reaction Part" frontTorqueReactionDirection="No Torque Reaction" rearTorqueReactionDirection="No Torque Reaction">
+                    <CRTSuspensionData name="LSD_C1" active="true" userDefined="false" method="constant" constant="0" mirror="none" scaleFactor="1.0">
+                         <Spline3d name="table" active="true" userDefined="false" interpolation_method="akima" xUnit="torque" datablock="Limited Slip Differential C1">
+                              <afc:VectorAttribute name="x_data">
+                                -50000 -20000 0 20000 50000
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="y_data">
+                                0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="z_data">
+                                -1 0 1
+                              </afc:VectorAttribute>
+                         </Spline3d>
+                    </CRTSuspensionData>
+                    <Spline2d name="userSpline" id="0" active="true" userDefined="false" interpolation_method="akima">
+                      <![CDATA[
+         -50000               0
+         -20000               0
+              0               0
+          20000               0
+          50000               0
+]]>
+                    </Spline2d>
+               </Differential>
+               <Differential name="rearDifferential" active="true" userDefined="false" activeFlag="true" inertia="200.0" driveRatio="2.617" method="LSD" LSD_C0_pos="50000.0" LSD_C0_neg="50000.0" LSD_C2="0" LSD_C3="0" detroitLocker="false" efficiency="1.0" tripotOuter1="(0 0 0)" tripotInner1="(0 0 0)" tripotOuter2="(0 0 0)" tripotInner2="(0 0 0)" shaftReactionComputation="false" torqueReactionBody="Chassis" frontTorqueReactionDirection="No Torque Reaction" rearTorqueReactionDirection="No Torque Reaction">
+                    <CRTSuspensionData name="LSD_C1" active="true" userDefined="false" method="constant" constant="0.3" mirror="none" scaleFactor="1.0">
+                         <Spline3d name="table" active="true" userDefined="false" interpolation_method="akima" xUnit="torque" datablock="Limited Slip Differential C1">
+                              <afc:VectorAttribute name="x_data">
+                                -2000000 -1600000 -800000 -450000 -200000 -20000 0 20000 200000 400000 700000 1000000 2000000
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="y_data">
+                                0.3 0.3 0.3 0.3 0.1 0 0 0 0.1 0.5 0.5 0.5 0.5
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="z_data">
+                                0
+                              </afc:VectorAttribute>
+                              <Comment userDefined="false">
+                                <![CDATA[]]>
+                              </Comment>
+                         </Spline3d>
+                    </CRTSuspensionData>
+                    <Spline2d name="userSpline" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Delta Angular Velocity" yLabel="Differential Torque" xUnit="angular_velocity" yUnit="torque">
+                      <![CDATA[
+           -540        -9288000
+           -510        -7288000
+           -480        -5288000
+           -450        -3288000
+           -426        -1688000
+           -414        -1248000
+           -390        -1088000
+           -360         -888000
+           -330         -688000
+           -300         -488000
+           -270         -288000
+           -246         -128000
+           -234          -84000
+           -210          -68000
+           -180          -48000
+           -150          -28000
+           -126          -12000
+           -114           -7600
+            -90           -6000
+            -60           -4000
+            -30           -2000
+              0               0
+             30            2000
+             60            4000
+             90            6000
+            114            7600
+            126           12000
+            150           28000
+            180           48000
+            210           68000
+            234           84000
+            246          128000
+            270          288000
+            300          488000
+            330          688000
+            360          888000
+            390         1088000
+            414         1248000
+            426         1688000
+            450         3288000
+            480         5288000
+            510         7288000
+            540         9288000
+]]>
+                         <Comment userDefined="false">
+                           <![CDATA[]]>
+                         </Comment>
+                    </Spline2d>
+               </Differential>
+               <Differential name="centralDifferential" active="true" userDefined="false" activeFlag="true" inertia="100.0" driveRatio="1.0" method="open" LSD_C0_pos="10.0" LSD_C0_neg="10.0" LSD_C2="0.8" LSD_C3="0.5" detroitLocker="false" efficiency="1.0" tripotOuter1="(0 0 0)" tripotInner1="(0 0 0)" tripotOuter2="(0 0 0)" tripotInner2="(0 0 0)" shaftReactionComputation="false" torqueReactionBody="No Reaction Part" frontTorqueReactionDirection="No Torque Reaction" rearTorqueReactionDirection="No Torque Reaction">
+                    <CRTSuspensionData name="LSD_C1" active="true" userDefined="false" method="constant" constant="0" mirror="none" scaleFactor="1.0">
+                         <Spline3d name="table" active="true" userDefined="false" interpolation_method="akima" xUnit="torque" datablock="Limited Slip Differential C1">
+                              <afc:VectorAttribute name="x_data">
+                                -50000 -20000 0 20000 50000
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="y_data">
+                                0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                              </afc:VectorAttribute>
+                              <afc:VectorAttribute name="z_data">
+                                -1 0 1
+                              </afc:VectorAttribute>
+                         </Spline3d>
+                    </CRTSuspensionData>
+                    <Spline2d name="userSpline" id="0" active="true" userDefined="false" interpolation_method="akima">
+                      <![CDATA[
+         -50000               0
+         -20000               0
+              0               0
+          20000               0
+          50000               0
+]]>
+                    </Spline2d>
+               </Differential>
+               <CRTMotor name="topDrivelineMotor" active="true" userDefined="false" method="standard" torqueMapFileFlag="true" torqueMapFile="mdids://LMP_20200316/powertrains.tbl/VI_engine_map.pwr" eMotorTorqueMapFileFlag="false" inertia="70000.0" stallRPM="1.0" idleRPM="1000.0" revLimitRPM="7000.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="true" idleControlMaximumThrottle="1.0" idleControlGain="0.005" maxRPMControlActiveFlag="true" maxRPMControlGain="0.005" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="centralDrivelineMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="frontDrivelineMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="rearDrivelineMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="frontLeftWheelMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="frontRightWheelMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="rearLeftWheelMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+               <CRTMotor name="rearRightWheelMotor" active="true" userDefined="false" method="standard" eMotorTorqueMapFileFlag="false" inertia="1.0" stallRPM="1.0" idleRPM="0" revLimitRPM="1.0" revLimitMapActiveFlag="false" torqueReactionDirection="No Torque Reaction" simpleEngineMinimumTorque="0" simpleEngineMaximumTorque="1.0" simpleEngineMaximumPower="1.0" torqueOutputOption="Clutch" simpleEngineTau="0" efficiency="1.0" torqueScalingFactor="1.0" idleControlActiveFlag="false" idleControlMaximumThrottle="1.0" idleControlGain="1.0" maxRPMControlActiveFlag="false" maxRPMControlGain="1.0" transmissionRatio="1.0" tractionControlActiveFlag="true" tractionControlGain="1.0" tractionControlThreshold="0.1" regenerativeBrakingFactor="0" longitudinalVelocityThreshold="0" eMotorRegenerationMapFlag="false" eMotorEfficiencyMapFlag="false">
+                    <Spline3d name="torqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Powertrain Map" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           -50000 -20000 0 20000 50000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           -1 0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM vs Throttle demand" zLabel="Throttle">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorBrakingTorqueMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Torque" yUnit="torque" datablock="Braking (generator) Torque  vs. RPM vs Brake demand" zLabel="Brake demand [-]">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 1
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="eMotorCoastingTorqueMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="RPM" yLabel="Torque" yUnit="force-length" datablock="Electric Motor Torque  vs. RPM">
+                      <![CDATA[
+              0               0
+           4000               0
+           8000               0
+          12000               0
+]]>
+                    </Spline>
+                    <Spline3d name="eMotorRegenerationMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Regeneration Factor [-]" datablock="Regeneration Factor vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           0 0 0 0 0 0 0 0 0 0 0 0
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline3d name="eMotorEfficiencyMap" active="true" userDefined="false" interpolation_method="akima" xLabel="Angular Velocity [RPM]" yLabel="Efficiency [-]" datablock="Efficiency vs. RPM vs Torque" zLabel="Torque" zUnit="torque">
+                         <afc:VectorAttribute name="x_data">
+                           0 4000 8000 12000
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="y_data">
+                           1 1 1 1 1 1 1 1 1 1 1 1
+                         </afc:VectorAttribute>
+                         <afc:VectorAttribute name="z_data">
+                           0 100 200
+                         </afc:VectorAttribute>
+                    </Spline3d>
+                    <Spline name="revLimitRPMMap" id="0" active="true" userDefined="false" interpolation_method="akima" xLabel="Gear [-]" yLabel="Rev Limit [RPM]" datablock="Rev Limit">
+                      <![CDATA[
+              0               0
+              1           10000
+              2           10000
+              3           10000
+              4           10000
+              5           10000
+              6           10000
+              7           10000
+              8           10000
+]]>
+                    </Spline>
+               </CRTMotor>
+          </CRTDriveline>
+     </Subsystem>
+</afc>

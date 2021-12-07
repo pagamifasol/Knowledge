@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<afc xmlns="http://www.mscsoftware.com/:vfc" xmlns:afc="http://www.mscsoftware.com/:afc">
+     <afc:Bibliography>
+          <File schema="afc" version="2.0.0.0" URI="file://D:/VI-Grade_DB_BCK/LMP_20200316.cdb/subsystems.tbl/WHEELS_REAR_SCG004C.xml" publicationDate="2020-03-16 10:19:03+01:00"/>
+          <Revision version="17.0"/>
+          <Corporation author="MSC.Software" URI="http://www.mscsoftware.com/"/>
+          <Author user="Stefano.Rapisarda" name="-unknown name-"/>
+          <Environment hostName="PE-NTBK-007" operatingSystem="MS Windows NT 6.2"/>
+          <Application name="MSC/AFC" version="02.00.00"/>
+     </afc:Bibliography>
+     <afc:Units>
+          <afc:UnitSetting name="angle" current="deg"/>
+          <afc:UnitSetting name="current" current="ampere"/>
+          <afc:UnitSetting name="force" current="newton"/>
+          <afc:UnitSetting name="length" current="mm"/>
+          <afc:UnitSetting name="luminosity" current="candela"/>
+          <afc:UnitSetting name="mass" current="kg"/>
+          <afc:UnitSetting name="quantity" current="mole"/>
+          <afc:UnitSetting name="solidAngle" current="steradian"/>
+          <afc:UnitSetting name="temperature" current="kelvin"/>
+          <afc:UnitSetting name="time" current="sec"/>
+          <afc:UnitSetting name="frequency" current="Hz"/>
+     </afc:Units>
+     <Subsystem name="WHEELS_REAR_SCG004C" active="true" userDefined="false">
+          <CRTWheelPair name="rear_wheels" active="true" userDefined="false" symmetry="right_left">
+               <CRTWheel name="right" active="true" userDefined="false" spinInertia="1624740.0" unsprungMass="50.0" wheelCenterHeight="340.0" ixx="1124470.0" iyy="1688740.0" izz="1096470.0" longitudinalDynamicsFlag="false" longitudinalDynamicsMass="25.0" longitudinalDynamicsCutoffFrequency="500.0" longitudinalDynamicsDamping="0.01" Mode="1">
+                    <Tire name="tire_data" active="true" userDefined="false">
+                         <TireContext active="true" propertyURI="mdids://LMP_20200316/tires.tbl/Michelin_34-71R18_333V_2b0_MF52_V3_modPTY05.tir" userDefined="false" context="default" offset="(0 0 0)" lateralForceScale="1" overturningMomentScale="1" aligningTorqueScale="1" rollingRadiusOffset="0" plysteerLateralForce="0" conicityLateralForce="0" plysteerAligningTorque="0" conicityAligningTorque="0" cmOffset="0" wheelCenterOffset="0" contactType="handling" useMode="900"/>
+                    </Tire>
+                    <Part name="part_data" active="true" userDefined="false" location="(0 0 0)" cm_location="(0 0 0)" im_location="(0 0 0)" part_num="-2" mass="0" ixx="0" iyy="0" izz="0" ixy="0" ixz="0" iyz="0" use_offdiagonal_terms="false" default_cg="false" user_sprung="false" percent_sprung="100"/>
+                    <WheelGraphics name="graphics_parameters" active="true" userDefined="false" bulgeRatio="0" wheelWidth="0"/>
+               </CRTWheel>
+          </CRTWheelPair>
+     </Subsystem>
+</afc>

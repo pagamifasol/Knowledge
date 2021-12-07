@@ -1,0 +1,32 @@
+
+
+- Development in Boston USA (static and dynamic machines, statically placed)
+
+- Dynamic machines in ..
+
+- Machine for plastic/composite impact test in Pianezza ITA
+
+- IST in Germany full car testing
+
+100kN - actuator in the base
+
+250kN - actuator in the base, better frequency response, taller specimens
+
+250kN - up to 3m tall, maximum flexibility, actuator on the top
+
+Software and loacell all manufactured by Instrom.
+
+There is an accessory furnace.
+
+The stiffness of the specimen is measured by a patented system before starting the test (30 seconds).
+
+Pumps can be added in parallel.
+
+For load cycle fatigues tests is better a small servo valve: there is the possibility to have 2 small or 1 small and 1 big for high speed tests.
+
+There is a chiller to cool down the oil. The pump/chiller unit is noisy and usually mounted far from the machine.
+
+Software is fragmented for different purposes: fatigue, low cycle fatigue, static...
+
+
+There are optional loadcells to improve accuracy for lower force tests. Accuracy is 0.5% of indicated load or 0.0002% ? of loacell maximum?
